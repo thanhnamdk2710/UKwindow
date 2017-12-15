@@ -1,0 +1,9 @@
+#login .navbar{
+    box-shadow: 0px 0px 15px #000;
+}
+#login .navbar-brand {
+    padding: 2px 15px;
+}
+#login .navbar-brand img {
+    width: 200px;
+}
