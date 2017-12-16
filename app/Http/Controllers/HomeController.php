@@ -2,27 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
-     * Show the application dashboard.
+     * Show the content Website
      *
-     * @return \Illuminate\Http\Response
+     * @auth: NamDeve
      */
     public function index()
     {
         return view('home');
+    }
+
+    public function getLogin()
+    {
+        return view('back-end.auth.login');
+    }
+
+    public function postLogin(LoginRequest $request)
+    {
+        $auth = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($auth)) {
+            return redirect()->route('admin');
+        } else {
+            return redirect()->route('login')
+                ->with(['message' => 'Email hoặc mật khẩu không đúng.', 'alert' => 'danger']);
+        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('index');
     }
 }

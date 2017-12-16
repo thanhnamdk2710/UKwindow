@@ -79,10 +79,6 @@
                                     <button type="submit" class="btn btn-primary">
                                         Đăng nhập
                                     </button>
-
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Quên mật khẩu?
-                                    </a>
                                 </div>
                             </div>
                         </form>
