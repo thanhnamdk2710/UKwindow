@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,45 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        return view('back-end.auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        $auth = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($auth)) {
+            return redirect()->route('admin');
+        } else {
+            return redirect()->route('login')
+                ->with(['message' => 'Email hoặc mật khẩu không đúng.', 'alert' => 'danger']);
+        }
+
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect()->route('index');
     }
 }

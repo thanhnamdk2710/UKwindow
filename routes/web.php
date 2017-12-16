@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//  Route Auth
+Route::get('/login', ['as' => 'login', 'uses' => 'HomeController@getLogin']);
+
+Route::post('/login', ['uses' => 'HomeController@postLogin']);
+
+Route::get('/logout', ['as' => 'logout', 'uses' => 'HomeController@logout']);
+//  End Auth
+
+Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/', ['as' => 'admin', 'uses' => 'DashboardController@index']);
 });
