@@ -23,4 +23,10 @@ Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', ['as' => 'admin', 'uses' => 'DashboardController@index']);
+
+    //  Route User
+    Route::resource('/user', 'UserController');
+
+    //  Route Slider
+    Route::resource('/slider', 'SliderController');
 });

@@ -17,7 +17,9 @@ class UserTableSeeder extends Seeder
             'fullname' => 'Nguyễn Thành Nam',
             'password' => bcrypt('nam123'),
             'role' => 1,
-            'status' => 1
+            'status' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
         ]);
     }
 }

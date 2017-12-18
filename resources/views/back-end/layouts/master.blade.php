@@ -22,11 +22,10 @@
     <!-- Custom CSS -->
     <link href="assets/css/startmin.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="assets/css/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="assets/css/common.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,12 +40,7 @@
 
     @include('back-end.layouts.header')
 
-    <div id="page-wrapper">
-
-        @yield('content')
-
-    </div>
-    <!-- /#page-wrapper -->
+    @yield('content')
 
     @include('back-end.layouts.footer')
 
@@ -64,8 +58,6 @@
 
 <!-- Morris Charts JavaScript -->
 <script src="assets/js/raphael.min.js"></script>
-<script src="assets/js/morris.min.js"></script>
-<script src="assets/js/morris-data.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="assets/js/startmin.js"></script>

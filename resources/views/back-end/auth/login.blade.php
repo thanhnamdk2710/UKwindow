@@ -45,7 +45,7 @@
                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                                 <label for="username" class="col-md-4 control-label">Tài khoản</label>
 
                                 <div class="col-md-6">

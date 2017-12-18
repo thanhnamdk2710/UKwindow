@@ -16,19 +16,15 @@
     </ul>
 
     <ul class="nav navbar-right navbar-top-links">
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> {{Auth::user()->username}} <b class="caret"></b>
+        <li>
+            <a href="javascript:void(0);">
+                Xin chào <strong>{{Auth::user()->username}}</strong>
             </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> Thông tin người dùng</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="{{route('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
-                </li>
-            </ul>
+        </li>
+        <li>
+            <a href="{{route('logout')}}">
+                <i class="fa fa-sign-out fa-fw"></i> Đăng xuất
+            </a>
         </li>
     </ul>
     <!-- /.navbar-top-links -->
@@ -48,7 +44,7 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="{{route('admin')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -63,10 +59,10 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    <a href="{{route('user.index')}}"><i class="fa fa-users fa-fw"></i> Tài khoản</a>
                 </li>
                 <li>
-                    <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                    <a href="{{route('slider.index')}}"><i class="fa fa-picture-o fa-fw"></i> Banner</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
