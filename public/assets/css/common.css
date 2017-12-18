@@ -15,6 +15,14 @@
     height: auto;
 }
 
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.product-items {
+    padding-bottom: 10px;
+}
+
 footer {
     position: fixed;
     bottom: 0;

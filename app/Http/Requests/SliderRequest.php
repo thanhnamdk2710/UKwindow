@@ -33,7 +33,7 @@ class SliderRequest extends FormRequest
     {
         return [
             'image.required' => 'Vui lòng chọn banner.',
-            'image.image' => 'Banner phải là hình ảnh.',
+            'image.image' => 'Banner phải là một hình ảnh.',
             'title.required' => 'Vui lòng nhập tiêu đề.',
         ];
     }

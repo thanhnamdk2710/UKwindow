@@ -14,7 +14,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Danh sách tài khoản
-                        <a href="{{route('user.create')}}" class="btn btn-success btn-xs pull-right">Tạo mới</a>
+                        <a href="{{route('user.create')}}" class="btn btn-success btn-xs pull-right">Thêm mới</a>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
