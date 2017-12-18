@@ -29,4 +29,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     //  Route Slider
     Route::resource('/slider', 'SliderController');
+
+    //  Route Category Product
+    Route::resource('/cat-product', 'CatProductController');
+
+    //  Route Product
+    Route::resource('/product', 'ProductController');
+
+    //  Route Product
+    Route::resource('/cat-news', 'ProductController');
+
+    //  Route Product
+    Route::resource('/news', 'ProductController');
+
+    //  Route Product
+    Route::resource('/cat-image', 'ProductController');
+
+    //  Route Product
+    Route::resource('/image', 'ProductController');
+
+    //  Route Product
+    Route::resource('/project', 'ProductController');
 });

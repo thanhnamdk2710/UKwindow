@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('product_code');
             $table->text('image');
             $table->integer('price');
-            $table->string('material');
-            $table->text('description');
+            $table->string('material')->nullable();
+            $table->text('description')->nullable();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('category_products');
             $table->timestamps();
