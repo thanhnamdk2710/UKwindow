@@ -36,11 +36,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     //  Route Product
     Route::resource('/product', 'ProductController');
 
-    //  Route Category News
-    Route::resource('/cat-news', 'ProductController');
-
     //  Route Product
-    Route::resource('/news', 'ProductController');
+    Route::resource('/news', 'NewsController');
 
     //  Route Category Image
     Route::resource('/cat-image', 'CategoryImageController');
