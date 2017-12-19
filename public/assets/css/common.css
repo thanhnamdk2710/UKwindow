@@ -23,6 +23,15 @@
     padding-bottom: 10px;
 }
 
+.block-image .panel-heading {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.block-image .panel-body .pull-left {
+    margin-top: 5px;
+}
+
 footer {
     position: fixed;
     bottom: 0;
