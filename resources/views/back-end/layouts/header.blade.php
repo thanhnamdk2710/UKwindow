@@ -75,19 +75,10 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Tin tức<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{route('cat-news.index')}}">Danh mục</a>
-                        </li>
-                        <li>
-                            <a href="{{route('news.index')}}">Tin tức</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="{{route('news.index')}}"><i class="fa fa-newspaper-o fa-fw"></i> Tin tức</a>
                 </li>
                 <li>
-                    <a href="{{route('user.index')}}"><i class="fa fa-building fa-fw"></i> Dự án</a>
+                    <a href="{{route('project.index')}}"><i class="fa fa-building fa-fw"></i> Dự án</a>
                 </li>
                 <li>
                     <a href="{{route('user.index')}}"><i class="fa fa-users fa-fw"></i> Tài khoản</a>

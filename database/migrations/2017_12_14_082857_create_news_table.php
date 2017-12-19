@@ -19,8 +19,6 @@ class CreateNewsTable extends Migration
             $table->string('slug');
             $table->text('image');
             $table->text('body');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('category_news');
             $table->timestamps();
         });
     }
