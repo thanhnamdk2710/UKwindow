@@ -26,48 +26,46 @@
                             </div>
                         @endif
                         @if(count($catImages) > 0)
-                            {{--<div class="table-responsive">--}}
-                                {{--<table class="table table-striped table-bordered table-hover">--}}
-                                    {{--<thead>--}}
-                                    {{--<tr>--}}
-                                        {{--<th class="text-center">#</th>--}}
-                                        {{--<th>Tên danh mục</th>--}}
-                                        {{--<th>Slug</th>--}}
-                                        {{--<th class="text-center">Thứ tự</th>--}}
-                                        {{--<th class="text-center">Sửa</th>--}}
-                                        {{--<th class="text-center">Xóa</th>--}}
-                                    {{--</tr>--}}
-                                    {{--</thead>--}}
-                                    {{--<tbody>--}}
-                                    {{--<?php $i = 1 ?>--}}
-                                    {{--@foreach($catImages as $catImage)--}}
-                                        {{--<tr>--}}
-                                            {{--<td class="text-center">{{$i++}}</td>--}}
-                                            {{--<td>{{$catProduct->name}}</td>--}}
-                                            {{--<td>{{$catProduct->slug}}</td>--}}
-                                            {{--<td class="text-center">{{$catProduct->sort}}</td>--}}
-                                            {{--<td class="text-center">--}}
-                                                {{--<a href="{{route('cat-product.edit', $catProduct->id)}}"--}}
-                                                   {{--class="btn btn-primary" title="Sửa">--}}
-                                                    {{--<span class="fa fa-edit"></span>--}}
-                                                {{--</a>--}}
-                                            {{--</td>--}}
-                                            {{--<td class="text-center">--}}
-                                                {{--<form action="{{route('cat-product.destroy', $catProduct->id)}}"--}}
-                                                      {{--method="POST">--}}
-                                                    {{--{{csrf_field()}}--}}
-                                                    {{--{{method_field('DELETE')}}--}}
-                                                    {{--<button class="btn btn-danger" title="Xóa">--}}
-                                                        {{--<span class="fa fa-trash"></span>--}}
-                                                    {{--</button>--}}
-                                                {{--</form>--}}
-                                            {{--</td>--}}
-                                        {{--</tr>--}}
-                                    {{--@endforeach--}}
-                                    {{--</tbody>--}}
-                                {{--</table>--}}
-                                {{--{{$catImages->links()}}--}}
-                            {{--</div>--}}
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Tên thư mục</th>
+                                        <th>Slug</th>
+                                        <th class="text-center">Sửa</th>
+                                        <th class="text-center">Xóa</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php $i = 1 ?>
+                                    @foreach($catImages as $catImage)
+                                        <tr>
+                                            <td class="text-center">{{$i++}}</td>
+                                            <td>{{$catImage->name}}</td>
+                                            <td>{{$catImage->slug}}</td>
+                                            <td class="text-center">
+                                                <a href="{{route('cat-image.edit', $catImage->id)}}"
+                                                   class="btn btn-primary" title="Sửa">
+                                                    <span class="fa fa-edit"></span>
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <form action="{{route('cat-image.destroy', $catImage->id)}}"
+                                                      method="POST">
+                                                    {{csrf_field()}}
+                                                    {{method_field('DELETE')}}
+                                                    <button class="btn btn-danger" title="Xóa">
+                                                        <span class="fa fa-trash"></span>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                                {{$catImages->links()}}
+                            </div>
                             <!-- /.table-responsive -->
                         @else
                             <div class="alert alert-warning">Hiện tại chưa có thư mục hình ảnh nào!!!</div>

@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Sản phẩm</h1>
+                <h1 class="page-header">Hình ảnh</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,47 +13,22 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Thêm mới sản phẩm
-                        <a href="{{route('product.index')}}" class="btn btn-default btn-xs pull-right">
+                        Thêm mới hình ảnh
+                        <a href="{{route('image.index')}}" class="btn btn-default btn-xs pull-right">
                             <span class="fa fa-arrow-left"></span> Trở lại</a>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="row">
-                            <form action="{{route('product.store')}}" class="form-horizontal" method="POST"
+                            <form action="{{route('image.store')}}" class="form-horizontal" method="POST"
                                   enctype="multipart/form-data">
                                 {{csrf_field()}}
-                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label for="name" class="col-md-4 control-label">Tên sản phẩm</label>
-
-                                    <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control" name="name"
-                                               value="{{ old('name') }}" autofocus>
-                                        @if ($errors->has('name'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-group{{ $errors->has('product_code') ? ' has-error' : '' }}">
-                                    <label for="product_code" class="col-md-4 control-label">Mã sản phẩm</label>
-
-                                    <div class="col-md-6">
-                                        <input id="product_code" type="text" class="form-control" name="product_code"
-                                               value="{{ old('product_code') }}">
-                                        @if ($errors->has('product_code'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('product_code') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
                                 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                                    <label for="image" class="col-md-4 control-label">Hình ảnh</label>
+                                    <label for="image" class="col-md-4 control-label">Chọn hình ảnh</label>
 
                                     <div class="col-md-6">
-                                        <input id="image" type="file" class="form-control" name="image">
+                                        <input id="image" type="file" class="form-control" name="image"
+                                               value="{{ old('image') }}">
                                         @if ($errors->has('image'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('image') }}</strong>
@@ -61,50 +36,30 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-                                    <label for="category_id" class="col-md-4 control-label">Danh mục</label>
+
+                                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                                    <label for="title" class="col-md-4 control-label">Tiêu đề hình ảnh</label>
+
+                                    <div class="col-md-6">
+                                        <input id="title" type="text" class="form-control" name="title"
+                                               value="{{ old('title') }}" autofocus>
+                                        @if ($errors->has('title'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('title') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category_id" class="col-md-4 control-label">Thư mục</label>
 
                                     <div class="col-md-6">
                                         <select name="category_id" id="category_id" class="form-control">
-                                            @foreach($catProducts as $catProduct)
-                                            <option value="{{$catProduct->id}}">{{$catProduct->name}}</option>
+                                            @foreach($catImages as $catImage)
+                                                <option value="{{$catImage->id}}">{{$catImage->name}}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
-                                    <label for="price" class="col-md-4 control-label">Giá sản phẩm</label>
-
-                                    <div class="col-md-6">
-                                        <input id="price" type="text" class="form-control" name="price"
-                                               value="{{ old('sort') }}">
-                                        @if ($errors->has('price'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('price') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-group{{ $errors->has('material') ? ' has-error' : '' }}">
-                                    <label for="price" class="col-md-4 control-label">Chất liệu</label>
-
-                                    <div class="col-md-6">
-                                        <input id="material" type="text" class="form-control" name="material"
-                                               value="{{ old('material') }}">
-                                        @if ($errors->has('material'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('material') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                                    <label for="description" class="col-md-4 control-label">Mô tả</label>
-
-                                    <div class="col-md-6">
-                                        <textarea name="description" id="description" class="form-control">
-                                            {{ old('description') }}
-                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
