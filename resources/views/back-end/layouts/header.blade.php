@@ -81,7 +81,16 @@
                     <a href="{{route('project.index')}}"><i class="fa fa-building fa-fw"></i> Dự án</a>
                 </li>
                 <li>
+                    <a href="{{route('about.index')}}"><i class="fa fa-book fa-fw"></i> Giới thiệu</a>
+                </li>
+                <li>
+                    <a href="{{route('factory.index')}}"><i class="fa fa-institution fa-fw"></i> Nhà máy</a>
+                </li>
+                <li>
                     <a href="{{route('user.index')}}"><i class="fa fa-users fa-fw"></i> Tài khoản</a>
+                </li>
+                <li>
+                    <a href="{{route('setting.index')}}"><i class="fa fa-cog fa-fw"></i> Cài đặt</a>
                 </li>
             </ul>
         </div>

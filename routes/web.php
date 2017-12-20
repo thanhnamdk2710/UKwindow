@@ -46,5 +46,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('/image', 'ImageController');
 
     //  Route Product
-    Route::resource('/project', 'ProductController');
+    Route::resource('/project', 'ProjectController');
+
+    //  Route About
+    Route::resource('/about', 'AboutController');
+
+    //  Route Factory
+    Route::resource('/factory', 'FactoryController');
+
+    //  Route Factory
+    Route::resource('/setting', 'SettingController');
 });

@@ -60,7 +60,7 @@ class ImageController extends Controller
         $image->save();
 
         return redirect()->route('image.index')
-            ->with(['message', 'Thêm mới thành công', 'alert' => 'success']);
+            ->with(['message' => 'Thêm mới thành công', 'alert' => 'success']);
     }
 
     /**
@@ -107,12 +107,12 @@ class ImageController extends Controller
     {
         $image = Image::find($id);
         $fileProduct = substr($image->path, 1);
-        if (File::exists($fileProduct)){
+        if (File::exists($fileProduct)) {
             File::delete($fileProduct);
         }
         $image->delete();
 
         return redirect()->route('image.index')
-            ->with(['message', 'Xóa thành công', 'alert' => 'success']);
+            ->with(['message' => 'Xóa thành công', 'alert' => 'success']);
     }
 }
