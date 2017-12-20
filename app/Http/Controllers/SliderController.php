@@ -89,7 +89,7 @@ class SliderController extends Controller
         $slider = Sliders::find($id);
         if ($request->hasFile('image')) {
             $fileSlider = substr($slider->path, 1);
-            if (File::exists($fileSlider)){
+            if (File::exists($fileSlider)) {
                 File::delete($fileSlider);
             }
             $fileName = $request->image->store('public/sliders');
@@ -117,11 +117,13 @@ class SliderController extends Controller
         if ($slider->status == 1) {
             $slider->status = 0;
             $slider->save();
-            return redirect()->route('slider.index')->with(['message' => 'Ẩn banner', 'alert' => 'success']);
+            return redirect()->route('slider.index')
+                ->with(['message' => 'Ẩn banner', 'alert' => 'success']);
         } else {
             $slider->status = 1;
             $slider->save();
-            return redirect()->route('slider.index')->with(['message' => 'Hiện banner', 'alert' => 'success']);
+            return redirect()->route('slider.index')
+                ->with(['message' => 'Hiện banner', 'alert' => 'success']);
         }
     }
 }

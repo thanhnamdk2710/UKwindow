@@ -17,6 +17,7 @@ class CreateAboutsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
+            $table->integer('location');
             $table->timestamps();
         });
     }

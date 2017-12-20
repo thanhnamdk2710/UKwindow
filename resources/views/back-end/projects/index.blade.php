@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Tin tức</h1>
+                <h1 class="page-header">Dự án</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,8 +13,8 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Danh sách tin tức
-                        <a href="{{route('news.create')}}" class="btn btn-success btn-xs pull-right">Thêm mới</a>
+                        Danh sách dự án
+                        <a href="{{route('project.create')}}" class="btn btn-success btn-xs pull-right">Thêm mới</a>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -25,8 +25,7 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-
-                        @if(count($news) > 0)
+                        @if(count($projects) > 0)
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -42,25 +41,23 @@
                                     </thead>
                                     <tbody>
                                     <?php $i = 1 ?>
-                                    @foreach($news as $new)
+                                    @foreach($projects as $project)
                                         <tr>
                                             <td class="text-center">{{$i++}}</td>
                                             <td class="text-center">
-                                                <img src="{{asset($new->image)}}" alt="" width="100px">
+                                                <img src="{{asset($project->image)}}" alt="" width="100px">
                                             </td>
-                                            <td>
-                                                <a href="{{route('news.show', $new->id)}}">{{$new->title}}</a>
-                                            </td>
-                                            <td>{{$new->slug}}</td>
-                                            <td class="text-center">{{$new->created_at}}</td>
+                                            <td>{{$project->title}}</td>
+                                            <td>{{$project->slug}}</td>
+                                            <td class="text-center">{{$project->created_at}}</td>
                                             <td class="text-center">
-                                                <a href="{{route('news.edit', $new->id)}}"
+                                                <a href="{{route('project.edit', $project->id)}}"
                                                    class="btn btn-primary" title="Sửa">
                                                     <span class="fa fa-edit"></span>
                                                 </a>
                                             </td>
                                             <td class="text-center">
-                                                <form action="{{route('news.destroy', $new->id)}}"
+                                                <form action="{{route('project.destroy', $project->id)}}"
                                                       method="POST">
                                                     {{csrf_field()}}
                                                     {{method_field('DELETE')}}
@@ -73,11 +70,11 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                {{$news->links()}}
+                                {{$projects->links()}}
                             </div>
                             <!-- /.table-responsive -->
                         @else
-                            <div class="alert alert-warning">Hiện tại chưa có tin tức nào!!!</div>
+                            <div class="alert alert-warning">Hiện tại chưa có dự án nào!!!</div>
                         @endif
                     </div>
                     <!-- /.panel-body -->

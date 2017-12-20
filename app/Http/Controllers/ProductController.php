@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('product.index')
-            ->with(['message', 'Thêm mới thành công', 'alert' => 'success']);
+            ->with(['message' => 'Thêm mới thành công', 'alert' => 'success']);
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
         $product->product_code = $request->product_code;
         if ($request->hasFile('image')) {
             $fileProduct = substr($product->image, 1);
-            if (File::exists($fileProduct)){
+            if (File::exists($fileProduct)) {
                 File::delete($fileProduct);
             }
             $fileName = $request->image->store('public/products');
@@ -114,7 +114,7 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('product.index')
-            ->with(['message', 'Lưu thành công', 'alert' => 'success']);
+            ->with(['message' => 'Lưu thành công', 'alert' => 'success']);
     }
 
     /**
@@ -127,12 +127,12 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $fileProduct = substr($product->image, 1);
-        if (File::exists($fileProduct)){
+        if (File::exists($fileProduct)) {
             File::delete($fileProduct);
         }
         $product->delete();
 
         return redirect()->route('product.index')
-            ->with(['message', 'Xóa thành công', 'alert' => 'success']);
+            ->with(['message' => 'Xóa thành công', 'alert' => 'success']);
     }
 }

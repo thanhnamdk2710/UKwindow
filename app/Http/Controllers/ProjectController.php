@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\News;
+use App\Project;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use File;
+use Illuminate\Support\Facades\Storage;
 
-class NewsController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('id', 'DESC')->paginate(10);
-        return view('back-end.news.index')->with('news', $news);
+        $projects = Project::orderBy('id', 'DESC')->paginate(10);
+        return view('back-end.projects.index')->with('projects', $projects);
     }
 
     /**
@@ -27,7 +27,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('back-end.news.create');
+        return view('back-end.projects.create');
     }
 
     /**
@@ -50,17 +50,17 @@ class NewsController extends Controller
             'body.required' => 'Vui lòng nhập nội dung.',
         ]);
 
-        $news = new News();
-        $news->title = $request->title;
-        $news->slug = str_slug($request->title);
+        $project = new Project();
+        $project->title = $request->title;
+        $project->slug = str_slug($request->title);
         if ($request->hasFile('image')) {
             $fileName = $request->image->store('public/news');
-            $news->image = Storage::url($fileName);
+            $project->image = Storage::url($fileName);
         }
-        $news->body = $request->body;
-        $news->save();
+        $project->body = $request->body;
+        $project->save();
 
-        return redirect()->route('news.index')
+        return redirect()->route('project.index')
             ->with(['message' => 'Thêm mới thành công', 'alert' => 'success']);
     }
 
@@ -72,8 +72,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::find($id);
-        return view('back-end.news.show')->with('news', $news);
+        //
     }
 
     /**
@@ -84,8 +83,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $news = News::find($id);
-        return view('back-end.news.edit')->with('news', $news);
+        $project = Project::find($id);
+        return view('back-end.project.edit')->with('project', $project);
     }
 
     /**
@@ -107,21 +106,21 @@ class NewsController extends Controller
             'body.required' => 'Vui lòng nhập nội dung.',
         ]);
 
-        $news = News::find($id);
-        $news->title = $request->title;
-        $news->slug = str_slug($request->title);
+        $project = Project::find($id);
+        $project->title = $request->title;
+        $project->slug = str_slug($request->title);
         if ($request->hasFile('image')) {
-            $fileProduct = substr($news->image, 1);
+            $fileProduct = substr($project->image, 1);
             if (File::exists($fileProduct)) {
                 File::delete($fileProduct);
             }
             $fileName = $request->image->store('public/news');
-            $news->image = Storage::url($fileName);
+            $project->image = Storage::url($fileName);
         }
-        $news->body = $request->body;
-        $news->save();
+        $project->body = $request->body;
+        $project->save();
 
-        return redirect()->route('news.index')
+        return redirect()->route('project.index')
             ->with(['message' => 'Thêm mới thành công', 'alert' => 'success']);
     }
 
@@ -133,15 +132,15 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $news = News::find($id);
+        $project = Project::find($id);
 
-        $fileProduct = substr($news->image, 1);
+        $fileProduct = substr($project->image, 1);
         if (File::exists($fileProduct)) {
             File::delete($fileProduct);
         }
-        $news->delete();
+        $project->delete();
 
-        return redirect()->route('news.index')
+        return redirect()->route('project.index')
             ->with(['message' => 'Xóa thành công', 'alert' => 'success']);
     }
 }
