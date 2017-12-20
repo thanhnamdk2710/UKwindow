@@ -84,7 +84,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('back-end.project.edit')->with('project', $project);
+        return view('back-end.projects.edit')->with('project', $project);
     }
 
     /**

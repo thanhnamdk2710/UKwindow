@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Tin tức</h1>
+                <h1 class="page-header">Dự án</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,14 +13,14 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Chỉnh sửa tin tức
-                        <a href="{{route('news.index')}}" class="btn btn-default btn-xs pull-right">
+                        Chỉnh sửa dự án
+                        <a href="{{route('project.index')}}" class="btn btn-default btn-xs pull-right">
                             <span class="fa fa-arrow-left"></span> Trở lại</a>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="row">
-                            <form action="{{route('news.update', $news->id)}}" class="form-horizontal" method="POST"
+                            <form action="{{route('project.update', $project->id)}}" class="form-horizontal" method="POST"
                                   enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 {{method_field('PUT')}}
@@ -29,7 +29,7 @@
 
                                     <div class="col-md-6">
                                         <input id="title" type="text" class="form-control" name="title"
-                                               value="{{ $news->title }}">
+                                               value="{{ $project->title }}">
                                         @if ($errors->has('title'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('title') }}</strong>
@@ -41,7 +41,7 @@
                                     <label for="image" class="col-md-4 control-label"></label>
 
                                     <div class="col-md-6">
-                                        <img src="{{asset($news->image)}}" alt="" width="300px">
+                                        <img src="{{asset($project->image)}}" alt="" width="300px">
                                     </div>
                                 </div>
                                 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
@@ -60,8 +60,8 @@
                                     <label for="body" class="col-md-4 control-label">Nội dung</label>
 
                                     <div class="col-md-6">
-                                        <textarea name="body" id="body" class="form-control">
-                                            {{ $news->body }}
+                                        <textarea name="body" id="editor1" class="form-control">
+                                            {{ $project->body }}
                                         </textarea>
                                         @if ($errors->has('body'))
                                             <span class="help-block">

@@ -90,7 +90,7 @@
                     <a href="{{route('user.index')}}"><i class="fa fa-users fa-fw"></i> Tài khoản</a>
                 </li>
                 <li>
-                    <a href="{{route('setting.index')}}"><i class="fa fa-cog fa-fw"></i> Cài đặt</a>
+                    <a href="{{route('information.index')}}"><i class="fa fa-cog fa-fw"></i> Cài đặt</a>
                 </li>
             </ul>
         </div>

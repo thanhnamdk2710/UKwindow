@@ -52,7 +52,7 @@
                                     <label for="body" class="col-md-4 control-label">Nội dung</label>
 
                                     <div class="col-md-6">
-                                        <textarea name="body" id="body" class="form-control">
+                                        <textarea name="body" id="editor1" class="form-control">
                                             {{ old('body') }}
                                         </textarea>
                                         @if ($errors->has('body'))
