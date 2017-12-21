@@ -112,7 +112,7 @@
                                     <label for="description" class="col-md-4 control-label">Mô tả</label>
 
                                     <div class="col-md-6">
-                                        <textarea name="description" id="description" class="form-control">
+                                        <textarea name="description" id="editor1" class="form-control">
                                             {{ $product->description }}
                                         </textarea>
                                     </div>

@@ -55,5 +55,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('/factory', 'FactoryController');
 
     //  Route Factory
-    Route::resource('/setting', 'SettingController');
+    Route::resource('/information', 'InformationController');
 });

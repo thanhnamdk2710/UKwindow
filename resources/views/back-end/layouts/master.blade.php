@@ -62,5 +62,10 @@
 <!-- Custom Theme JavaScript -->
 <script src="assets/js/startmin.js"></script>
 
+<script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+
+<script> CKEDITOR.replace('editor1'); </script>
+<script> CKEDITOR.replace('editor'); </script>
+
 </body>
 </html>
